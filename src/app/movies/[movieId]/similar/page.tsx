@@ -48,7 +48,6 @@ export default async function SimilarMoviesPage({
   
   // Calculate pagination - only 2 pages with 10 movies each (20 total)
   const totalPages = 2;
-  const moviesPerPage = 10;
 
   return (
     <div className="flex flex-col items-center w-screen min-h-screen">
@@ -60,7 +59,7 @@ export default async function SimilarMoviesPage({
           <div>
             <h1 className="text-3xl font-bold">Similar Movies</h1>
             <p className="text-gray-600 mt-2">
-              Movies similar to "{movieData.title}"
+              Movies similar to &quot;{movieData.title}&quot;
             </p>
           </div>
           <Link 

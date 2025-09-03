@@ -6,9 +6,9 @@ import Navigation from "@/components/components/Navigation";
 
 export default function Home() {
   const data = [
-    { title: "Upcoming", bottom: 0, route: "upcoming" },
-    { title: "Popular", bottom: 0, route: "popular" },
-    { title: "TopRated", bottom: 0, route: "top_rated" },
+    { id: 1, title: "Upcoming", bottom: 0, route: "upcoming" },
+    { id: 2, title: "Popular", bottom: 0, route: "popular" },
+    { id: 3, title: "TopRated", bottom: 0, route: "top_rated" },
   ];
   return (
     <div>
@@ -21,6 +21,7 @@ export default function Home() {
           return (
             <MovieSection
               key={section.title}
+              id={section.id}
               title={section.title}
               bottom={section.bottom}
               route={section.route}

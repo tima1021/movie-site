@@ -29,6 +29,7 @@ const Popular = () => {
 
         <section className="flex flex-col mt-8 gap-13 ">
           <MovieSection
+            id={1}
             title="Popular"
             bottom={bottom}
             route="popular"

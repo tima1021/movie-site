@@ -81,7 +81,7 @@ export default async function Page({
       </div>
       <div className="container flex flex-col gap-5 mt-8">
         <div className="flex gap-2.5">
-          {data?.genres?.map((genre) => {
+          {data?.genres?.map((genre: { id: number; name: string }) => {
             return (
               <Badge
                 className="bg-white text-black rounded-full border border-solid border-[#E4E4E7] px-2.5 py-0.5"

@@ -2,7 +2,7 @@
 import { useState, useEffect, useRef } from "react";
 import { useRouter } from "next/navigation";
 import { Input } from "../ui/input";
-import Link from "next/link";
+
 
 const token =
   "eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJkNjdkOGJlYmQwZjRmZjM0NWY2NTA1Yzk5ZTlkMDI4OSIsIm5iZiI6MTc0MjE3NTA4OS4zODksInN1YiI6IjY3ZDc3YjcxODVkMTM5MjFiNTAxNDE1ZiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.KxFMnZppBdHUSz_zB4p9A_gRD16I_R6OX1oiEe0LbE8";
@@ -155,7 +155,7 @@ const SearchInput = () => {
                     className="px-4 py-3 text-sm text-blue-600 hover:bg-gray-100 cursor-pointer"
                     onClick={handleSearch}
                   >
-                    Search for "{searchValue}"
+                    Search for &quot;{searchValue}&quot;
                   </div>
                 </div>
               )}

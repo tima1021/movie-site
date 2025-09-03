@@ -66,7 +66,7 @@ export default async function SearchPage({
           <div>
             <h1 className="text-3xl font-bold">Search Results</h1>
             <p className="text-gray-600 mt-2">
-              Results for "{q}"
+              Results for &quot;{q}&quot;
             </p>
           </div>
           <Link 
@@ -79,7 +79,7 @@ export default async function SearchPage({
 
         {/* Results count */}
         <div className="text-sm text-gray-500">
-          Found {searchResults.total_results} movies matching "{q}"
+          Found {searchResults.total_results} movies matching &quot;{q}&quot;
         </div>
 
         {/* Movies Grid - 5 columns, 2 rows = 10 movies per page */}
@@ -170,7 +170,7 @@ export default async function SearchPage({
         {/* No results message */}
         {searchResults.results?.length === 0 && (
           <div className="text-center py-12">
-            <p className="text-gray-500 text-lg">No movies found for "{q}".</p>
+            <p className="text-gray-500 text-lg">No movies found for &quot;{q}&quot;.</p>
             <p className="text-gray-400 text-sm mt-2">Try a different search term.</p>
           </div>
         )}

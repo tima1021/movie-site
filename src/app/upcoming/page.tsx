@@ -29,6 +29,7 @@ const Upcoming = () => {
 
         <section className="flex flex-col mt-8 gap-13 ">
           <MovieSection
+            id={1}
             title="Upcoming"
             bottom={bottom}
             route="upcoming"
