@@ -4,7 +4,7 @@ const Footer = () => {
       <div className="container flex items-start justify-between">
         <div className="flex flex-col items-start self-stretch gap-3">
           <div className="flex justify-center gap-2">
-            <img src="../film-white.png" alt="" className="w-5 h-5 " />
+            <img src="/film-white.png" alt="" className="w-5 h-5 " />
             <p className="text-[16px] font-bold text-white">Movie Z</p>
           </div>
           <p className="text-[14px] font-normal text-white">
@@ -17,7 +17,7 @@ const Footer = () => {
               Contact Information
             </p>
             <div className="flex items-center gap-3">
-              <img src="../mail.png" alt="" className="w-4 h-4" />
+              <img src="/mail.png" alt="" className="w-4 h-4" />
               <div className="flex flex-col w-full">
                 <p className="text-[14px] font-medium text-white">Email:</p>
                 <p className="text-[14px] font-medium text-white">
@@ -26,7 +26,7 @@ const Footer = () => {
               </div>
             </div>
             <div className="flex items-center gap-3 mt-3">
-              <img src="../phone.png" alt="" className="w-4 h-4" />
+              <img src="/phone.png" alt="" className="w-4 h-4" />
               <div className="flex flex-col w-full ">
                 <p className="text-[14px] text-white font-medium">Phone:</p>
                 <p className="text-[14px] text-white font-medium">

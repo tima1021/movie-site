@@ -1,30 +1,40 @@
 "use client";
 import Link from "next/link";
 import { Button } from "../ui/button";
-import { Input } from "../ui/input";
+import SearchInput from "./SearchInput";
+import GenreDropdown from "./GenreDropdown";
+import { useTheme } from "@/contexts/ThemeContext";
 const Navigation = () => {
+  const { theme, toggleTheme } = useTheme();
+
   return (
     <div className="container flex items-center justify-between">
       <Link href={"../"}>
         <div className="flex items-center gap-2">
-          <img src="../film.png" alt="" className="w-5 h-5" />
+          <img src="/film.png" alt="" className="w-5 h-5" />
 
           <p className="text-[#4338CA] text-[16px] font-bold">Movie Z</p>
         </div>
       </Link>
       <div className="flex items-center gap-3">
-        <Button className="bg-white border border-[#E4E4E7] rounded-[8px] shadow-sm">
-          <img src="../chevron-down.png" alt="" className="w-4 h-4" />
-
-          <p className="text-[14px] font-medium text-black">Genre</p>
-        </Button>
-        <div className="w-full flex px-3 items-center gap-[10px] border border-[#E4E4E7] rounded-[8px]">
-          <img src="../search.png" alt="" className="w-4 h-4" />
-          <Input className="border-0" />
-        </div>
+        <GenreDropdown />
+        <SearchInput />
       </div>
-      <Button className="flex items-center justify-center px-4 py-2 bg-white">
-        <img src="../moon.png" alt="" className="w-4 h-4" />
+      <Button 
+        className={`flex items-center justify-center px-4 py-2 transition-colors ${
+          theme === "light" 
+            ? "bg-white hover:bg-gray-100" 
+            : "bg-gray-800 hover:bg-gray-700"
+        }`}
+        onClick={toggleTheme}
+      >
+        <img 
+          src="/moon.png" 
+          alt={theme === "light" ? "Dark mode" : "Light mode"} 
+          className={`w-4 h-4 transition-transform ${
+            theme === "dark" ? "rotate-180" : ""
+          }`}
+        />
       </Button>
     </div>
   );

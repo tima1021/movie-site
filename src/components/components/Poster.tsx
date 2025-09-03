@@ -50,7 +50,7 @@ const Poster = () => {
                 <p className="text-4xl font-bold ">{movie.title}</p>
                 <div className="flex h-[48px] items-center">
                   <img
-                    src="star.png"
+                    src="/star.png"
                     alt="star"
                     className="w-[28px] h-[28px]"
                   />
@@ -65,9 +65,9 @@ const Poster = () => {
               <div className="w-[402px] text-white text-[16px]">
                 <p>{movie.overview}</p>
               </div>
-              <button className="bg-white py-2 px-4 rounded-md w-fit flex items-center cursor-pointer gap-0.5">
+              <button className="bg-white dark:bg-gray-800 py-2 px-4 rounded-md w-fit flex items-center cursor-pointer gap-0.5 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors">
                 <img src="./images/play.png" alt="" />
-                <p>Watch Trailer</p>
+                <p className="text-gray-900 dark:text-gray-100 font-medium">Watch Trailer</p>
               </button>
             </div>
           </div>

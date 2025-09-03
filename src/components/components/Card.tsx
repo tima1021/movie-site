@@ -16,15 +16,15 @@ const Card = ({ title, imageUrl, voteAverage, id }: MovieCard) => {
           alt={title}
           className=" rounded-t-md"
         />
-        <div className=" px-3 py-2 gap-1 flex flex-col bg-gray-100 h-[96px] rounded-md">
+        <div className="px-3 py-2 gap-1 flex flex-col bg-gray-100 dark:bg-gray-800 h-[96px] rounded-md">
           <div className="flex items-center gap-1">
-            <img src="../star.png" alt="star" className="size-4 " />
+            <img src="/star.png" alt="star" className="size-4" />
             <div className="flex items-center">
-              <p>{Math.floor(voteAverage / 0.1) / 10}</p>
-              <p className=" leading-[16px]  text-[12px] text-[#71717A]">/10</p>
+              <p className="text-gray-900 dark:text-gray-100">{Math.floor(voteAverage / 0.1) / 10}</p>
+              <p className="leading-[16px] text-[12px] text-[#71717A] dark:text-gray-400">/10</p>
             </div>
           </div>
-          <p>{title}</p>
+          <p className="text-gray-900 dark:text-gray-100 font-medium">{title}</p>
         </div>
       </div>
     </Link>

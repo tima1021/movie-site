@@ -1,6 +1,8 @@
 import Navigation from "@/components/components/Navigation";
 import StaffInfo from "@/components/components/StaffInfo";
+import Footer from "@/components/components/Footer";
 import { Badge } from "@/components/ui/badge";
+import Link from "next/link";
 
 const token =
   "eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJkNjdkOGJlYmQwZjRmZjM0NWY2NTA1Yzk5ZTlkMDI4OSIsIm5iZiI6MTc0MjE3NTA4OS4zODksInN1YiI6IjY3ZDc3YjcxODVkMTM5MjFiNTAxNDE1ZiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.KxFMnZppBdHUSz_zB4p9A_gRD16I_R6OX1oiEe0LbE8";
@@ -36,7 +38,7 @@ export default async function Page({
   const data = await response.json();
   console.log(data);
   const SimiliarMovieResponse = await fetch(
-    `https://api.themoviedb.org/3/movie/${id}/similar?language=en-US&page=1`,
+    `https://api.themoviedb.org/3/movie/${movieId}/similar?language=en-US&page=1`,
     { headers: { Authorization: `Bearer ${token}` } }
   );
   const SimiliarMovies: MovieResponse = await SimiliarMovieResponse.json();
@@ -56,7 +58,7 @@ export default async function Page({
           <div className="flex flex-col ">
             <p className="text-[12px] font-medium">Rating</p>
             <div className="flex items-start gap-1 h-[48px]">
-              <img src="../star.png" alt="" className="w-7 h-7" />
+              <img src="/star.png" alt="" className="w-7 h-7" />
               <div className="flex flex-col">
                 {data.vote_average}/10
                 <p>{data.vote_count}</p>
@@ -98,13 +100,39 @@ export default async function Page({
       <div className="container flex flex-col items-start gap-8 mt-8">
         <div className="flex items-start justify-between w-full">
           <p className="text-[24px] font-semibold">More like this</p>
-          <button className="flex items-center justify-center gap-2 px-4 py-2 cursor-pointer h-9">
+          <Link 
+            href={`/movies/${movieId}/similar`}
+            className="flex items-center justify-center gap-2 px-4 py-2 cursor-pointer h-9 hover:bg-gray-100 rounded-lg transition-colors"
+          >
             <p className="text-14px] font-medium">See more</p>
             <img src="../right.png" alt="" className="w-4 h-4" />
-          </button>
+          </Link>
         </div>
-        <div className="grid grid-cols-5 ">{/* {SimiliarMovies.} */}</div>
+        <div className="grid grid-cols-5 gap-3 w-full">
+          {SimiliarMovies.results?.slice(0, 5).map((movie) => (
+            <Link 
+              key={movie.id} 
+              href={`/movies/${movie.id}`}
+              className="flex flex-col gap-2 group hover:scale-105 transition-transform duration-200"
+            >
+              <img
+                src={`https://image.tmdb.org/t/p/w200${movie.poster_path}`}
+                alt={movie.title}
+                className="w-full h-64 object-cover rounded-lg"
+              />
+              <div className="flex flex-col gap-1">
+                <h3 className="text-sm font-semibold line-clamp-2 group-hover:text-blue-600 transition-colors">{movie.title}</h3>
+                <div className="flex items-center gap-1">
+                  <img src="/star.png" alt="" className="w-4 h-4" />
+                  <span className="text-xs text-gray-600">{movie.vote_average.toFixed(1)}/10</span>
+                </div>
+              </div>
+            </Link>
+          ))}
+        </div>
+
       </div>
+      <Footer />
     </div>
   );
 }
